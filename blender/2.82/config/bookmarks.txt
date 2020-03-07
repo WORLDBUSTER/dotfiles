@@ -1,0 +1,4 @@
+[Bookmarks]
+[Recent]
+/home/municorn/Drive/Documents/Blender/
+/tmp/

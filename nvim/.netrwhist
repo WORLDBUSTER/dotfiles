@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/home/municorn/Documents/hledger'
 let g:netrw_dirhist_3='/home/municorn/.config/Code'
 let g:netrw_dirhist_2='/home/municorn/.config'
 let g:netrw_dirhist_1='/home/municorn/.config/nvim'
