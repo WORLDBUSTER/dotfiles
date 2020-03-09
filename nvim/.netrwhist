@@ -1,6 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =4
-let g:netrw_dirhist_4='/home/municorn/Documents/hledger'
-let g:netrw_dirhist_3='/home/municorn/.config/Code'
-let g:netrw_dirhist_2='/home/municorn/.config'
-let g:netrw_dirhist_1='/home/municorn/.config/nvim'
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/municorn/.config/cmus'
+let g:netrw_dirhist_6='/home/municorn/.config/hunter'
+let g:netrw_dirhist_5='/home/municorn/.config/blender/2.82/scripts/presets'
+let g:netrw_dirhist_4='/home/municorn/.config/blender/2.82/scripts/presets/operator'
+let g:netrw_dirhist_3='/home/municorn/.config/blender/2.82/scripts/presets/operator/add_curve_sapling'
+let g:netrw_dirhist_2='/home/municorn/.config/blender/2.82/scripts/presets/operator'
+let g:netrw_dirhist_1='/home/municorn/.config/blender/2.82/scripts/presets'
+let g:netrw_dirhist_0='/home/municorn/.config/blender/2.82/scripts'
+let g:netrw_dirhist_9='/home/municorn/.config/blender/2.82'
+let g:netrw_dirhist_8='/home/municorn/.config/blender/2.82/config'
