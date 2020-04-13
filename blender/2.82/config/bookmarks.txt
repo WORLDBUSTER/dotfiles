@@ -1,4 +1,9 @@
 [Bookmarks]
 [Recent]
+/home/municorn/Pictures/Wallpapers/Scenes/
 /home/municorn/Drive/Documents/Blender/
+/home/municorn/Videos/
+/home/municorn/Videos/projects/tech_comm_presentation/
+/home/municorn/
+/home/municorn/Pictures/Wallpapers/
 /tmp/
