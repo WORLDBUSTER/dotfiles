@@ -1,8 +1,10 @@
 [Bookmarks]
 [Recent]
+/home/municorn/Videos/mlp/s01/
+/home/municorn/Videos/
+/home/municorn/Documents/college/software_engineering/survey_presentation/
 /home/municorn/Pictures/Wallpapers/Scenes/
 /home/municorn/Drive/Documents/Blender/
-/home/municorn/Videos/
 /home/municorn/Videos/projects/tech_comm_presentation/
 /home/municorn/
 /home/municorn/Pictures/Wallpapers/
