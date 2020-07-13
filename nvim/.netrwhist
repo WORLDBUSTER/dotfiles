@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =0
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/municorn/.config/awesome'
+let g:netrw_dirhist_2='/home/municorn/.config'
+let g:netrw_dirhist_1='/home/municorn'
 let g:netrw_dirhist_0='/home/municorn/.config/awesome'
 let g:netrw_dirhist_9='/home/municorn/.config/MuseScore'
 let g:netrw_dirhist_8='/home/municorn/.config/Signal'
@@ -7,6 +10,3 @@ let g:netrw_dirhist_7='/home/municorn/.config/awesome'
 let g:netrw_dirhist_6='/home/municorn/Documents/rust_projects/crypto-trials/src'
 let g:netrw_dirhist_5='/home/municorn/Documents/external/mako/include'
 let g:netrw_dirhist_4='/home/municorn/Documents/external/mako'
-let g:netrw_dirhist_3='/home/municorn/Documents/rust_projects/crypto-trials/src/wallet'
-let g:netrw_dirhist_2='/home/municorn/Documents/rust_projects/crypto-trials/src'
-let g:netrw_dirhist_1='/home/municorn/Documents/rust_projects/crypto-trials/src/wallet'
