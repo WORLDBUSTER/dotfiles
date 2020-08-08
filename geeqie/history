@@ -1,0 +1,12 @@
+#History lists
+
+[shortcuts]
+".[path](null)"
+"Home[path]/home/municorn"
+"Desktop[path]/home/municorn/Desktop"
+"Collections[path]/home/municorn/.local/share/geeqie/collections"
+
+[path_list]
+"/home/municorn/Pictures/dslr/new-ketchum"
+
+#end
