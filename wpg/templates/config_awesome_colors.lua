@@ -1,1 +1,0 @@
-/home/municorn/.config/awesome/colors.lua

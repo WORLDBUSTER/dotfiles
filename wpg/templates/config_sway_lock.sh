@@ -1,1 +1,0 @@
-/home/municorn/.config/sway/lock.sh
