@@ -11,7 +11,7 @@ set -U fish_color_history_current --bold
 set -U fish_color_host normal
 set -U fish_color_host_remote yellow
 set -U fish_color_match --background=blue
-set -U fish_color_normal normal
+set -U fish_color_normal brwhite
 set -U fish_color_operator yellow
 set -U fish_color_param cyan
 set -U fish_color_quote yellow
