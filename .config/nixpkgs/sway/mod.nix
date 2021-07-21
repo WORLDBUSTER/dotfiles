@@ -127,7 +127,7 @@ in
 
       # for all
       "*" = {
-        background = ''"$HOME/.config/wpg/wallpapers/$(wpg -c)" fill'';
+        background = ''"$HOME/Pictures/Wallpapers/Eevee/Night.jpeg" fill'';
       };
     };
 
