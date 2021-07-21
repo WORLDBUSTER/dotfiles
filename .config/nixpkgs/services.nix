@@ -5,7 +5,8 @@
 
   gammastep = {
     enable = true;
-    provider = "geoclue2";
+    dawnTime = "6:30-7:00";
+    duskTime = "21:00-21:30";
     temperature = {
       night = 1500;
     };
