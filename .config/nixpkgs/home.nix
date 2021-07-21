@@ -67,7 +67,10 @@ in
       # sound
       pamixer
 
-      # apps
+      # video
+      blender
+
+      # other apps
       android-file-transfer
       awf
       element-desktop
@@ -83,7 +86,7 @@ in
       slack
       spotify
 
-      # other
+      # other things
       xorg.xcursorgen
     ];
 
