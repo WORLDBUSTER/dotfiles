@@ -126,6 +126,8 @@
     };
   };
 
+  neovim = import ./nvim/mod.nix { inherit pkgs; };
+
   password-store = {
     enable = true;
     settings = {

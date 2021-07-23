@@ -39,7 +39,6 @@ in
       fd
       fish
       gnupg
-      neovim
       neovim-remote
       notify-desktop
       pinentry
@@ -187,7 +186,19 @@ in
 
   wayland.windowManager.sway = import ./sway/mod.nix { inherit config lib colors bemenuOpts; };
 
-  xdg.enable = true;
+  xdg = {
+    enable = true;
+    configFile = {
+      "nvim/lua" = {
+        recursive = true;
+        source = ./nvim/files/lua;
+      };
+      "nvim/pandoc-preview.sh" = {
+        source = ./nvim/files/pandoc-preview.sh;
+        executable = true;
+      };
+    };
+  };
 
   xsession = {
     pointerCursor = {
