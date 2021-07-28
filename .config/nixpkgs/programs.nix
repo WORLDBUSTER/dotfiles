@@ -13,7 +13,10 @@
     enableAliases = true;
   };
 
-  firefox.enable = true;
+  firefox = {
+    enable = true;
+    package = pkgs.firefox-wayland;
+  };
 
   fish = {
     enable = true;
@@ -61,6 +64,10 @@
   };
 
   gpg = {
+    enable = true;
+  };
+
+  himalaya = {
     enable = true;
   };
 
@@ -125,6 +132,8 @@
       background_opacity = "0.90";
     };
   };
+
+  neomutt = { enable = true; };
 
   neovim = import ./nvim/mod.nix { inherit pkgs; };
 

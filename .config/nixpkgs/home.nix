@@ -86,6 +86,7 @@ in
       spotify
 
       # other things
+      hydroxide
       xorg.xcursorgen
     ];
 
