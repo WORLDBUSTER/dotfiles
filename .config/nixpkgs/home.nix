@@ -97,7 +97,6 @@ in
       "$HOME/.cargo/bin"
       "$HOME/.local/bin"
       "$HOME/go/bin"
-      "${config.home.sessionVariables.TEXLIVE_PATH}"
     ];
     sessionVariables = {
       # from fish
@@ -111,10 +110,11 @@ in
       GPG_TTY = "$(tty)";
       GTK_THEME = "Arc-Dark";
       LEDGER_FILE = "$HOME/Notebook/ledger/main.sfox";
-      SUDO_ASKPASS = "pass spotify";
-      TEXLIVE_PATH = "/opt/texlive/2021/bin/x86_64-linux/";
+      MOZ_ENABLE_WAYLAND = 1;
+      SUDO_ASKPASS = "ksshaskpass";
       WINEPREFIX = "$HOME/.wine/";
       XBPS_DISTDIR = "$HOME/code/void/packages";
+      XDG_CURRENT_DESKTOP = "sway";
     };
 
     # Home Manager needs a bit of information about you and the

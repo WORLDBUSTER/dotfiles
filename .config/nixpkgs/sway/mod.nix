@@ -140,17 +140,16 @@ in
         lockWarningCmd = "notify-send -u low -t 29500 -- 'Are you still there?' 'Your system will lock itself soon.'";
       in
       [
-        { command = ''/run/current-system/sw/libexec/xdg-desktop-portal-wlr''; }
-        { command = ''/run/current-system/sw/libexec/polkit-gnome-authentication-agent-1''; }
+        # this lets gammastep and xdg desktop portal wlr start correctly
+        { command = ''systemctl --user import-environment''; }
+        { command = ''systemctl --user start graphical-session.target''; }
+
+        # startup other things
         { command = ''brillo -I''; }
         { command = ''muse-status-daemon''; }
         { command = ''swayidle -w timeout 270 ${lockWarningCmd} timeout 300 ${lockCmd} timeout 315 ${dpmsOff} resume ${dpmsOn} before-sleep ${lockCmd}''; }
         { command = ''xhost si:localuser:root''; }
         { command = ''xrdb -load ~/.Xresources''; }
-
-        # this might let gammastep start correctly
-        { command = ''systemctl --user import-environment''; }
-        { command = ''systemctl --user start graphical-session.target''; }
 
         # (re)start wob
         { command = "killall wob; mkfifo $SWAYSOCK.wob; tail -f $SWAYSOCK.wob | wob -a bottom -H 24 -W 512 -M 256 -p 4 -o 0 -b 6 --border-color '${wobBorder}' --bar-color '${wobBar}' --background-color '${wobBackground}'"; always = true; }
