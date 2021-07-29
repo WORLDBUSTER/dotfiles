@@ -202,8 +202,16 @@ in
         source = ./nvim/files/lua;
       };
       "nvim/pandoc-preview.sh" = {
-        source = ./nvim/files/pandoc-preview.sh;
         executable = true;
+        source = ./nvim/files/pandoc-preview.sh;
+      };
+      "sway/mpris-toggle.sh" = {
+        executable = true;
+        source = ./sway/files/mpris-toggle.sh;
+      };
+      "sway/lock.sh" = {
+        executable = true;
+        text = import ./sway/files/lock.sh.base.nix { inherit colors; };
       };
     };
   };

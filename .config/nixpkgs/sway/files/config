@@ -31,7 +31,7 @@ bindsym --locked {
 
 # player controls
 bindsym --locked --no-repeat {
-    XF86AudioPlay exec mpc toggle || playerctl play-pause
+    XF86AudioPlay exec mpc toggle || ./mpris-toggle.sh
     XF86AudioNext exec mpc next || playerctl next
     XF86AudioPrev exec mpc cdprev || playerctl previous
 }
