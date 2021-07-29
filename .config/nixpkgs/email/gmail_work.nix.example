@@ -1,0 +1,20 @@
+{
+  address = "_____@mycompany.com"; # change this
+  flavor = "gmail.com";
+  maildir.path = "work";
+  passwordCommand = "pass work/email";
+  realName = "First Last"; # and this
+  primary = true;
+
+  himalaya = {
+    enable = true;
+  };
+  mbsync = {
+    enable = true;
+    create = "maildir";
+  };
+  msmtp.enable = true;
+  neomutt = {
+    enable = true;
+  };
+}

@@ -18,6 +18,8 @@ in
     };
   };
 
+  accounts.email = import ./email/mod.nix { inherit config; };
+
   home = {
     packages = with pkgs; [
       # desktop environment

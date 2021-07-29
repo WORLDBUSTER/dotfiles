@@ -133,6 +133,8 @@
     };
   };
 
+  mbsync.enable = true;
+
   neomutt = { enable = true; };
 
   neovim = import ./nvim/mod.nix { inherit pkgs; };
