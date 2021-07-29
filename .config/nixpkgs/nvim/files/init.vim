@@ -30,17 +30,10 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 " autocommands
 augroup auto_commands
     autocmd!
-    autocmd FileType markdown,pandoc call SetupMarkdown()
-    " autocmd FileType rust setlocal formatprg="rustfmt"
-    " autocmd BufWinLeave * silent! mkview
-    " autocmd BufWinEnter * silent! loadview
     autocmd BufEnter * checktime
-    autocmd CursorHold,InsertLeave * nested call AutoSave()
-
-    " Enable type inlay hints
-    " autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
-    " \ lua require'lsp_extensions'.inlay_hints{ prefix = '  ', highlight = 'Comment', enabled = {'TypeHint', 'ChainingHint', 'ParameterHint'} }
     autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+    autocmd CursorHold,InsertLeave * nested call AutoSave()
+    autocmd FileType markdown,pandoc call SetupMarkdown()
 augroup END
 
 " base00
@@ -201,9 +194,6 @@ hi! link LspDiagnosticsDefaultError Error
 hi! link LspDiagnosticsDefaultHint Info
 hi! link LspDiagnosticsDefaultInformation Info
 hi! link LspDiagnosticsDefaultWarning Warning
-hi! link LspDiagnosticsErrorSign Error
-hi! link LspDiagnosticsHintSign Info
-hi! link LspDiagnosticsInformationSign Info
 hi! link LspDiagnosticsUnderlineError Error
 hi! link LspDiagnosticsUnderlineHint Info
 hi! link LspDiagnosticsUnderlineInformation Info
@@ -212,6 +202,9 @@ hi! link LspDiagnosticsVirtualTextError Error
 hi! link LspDiagnosticsVirtualTextHint Info
 hi! link LspDiagnosticsVirtualTextInformation Info
 hi! link LspDiagnosticsVirtualTextWarning Warning
+hi! link LspDiagnosticsErrorSign Error
+hi! link LspDiagnosticsHintSign Info
+hi! link LspDiagnosticsInformationSign Info
 hi! link LspDiagnosticsWarningSign Warning
 
 " diff highlights
@@ -232,17 +225,20 @@ hi! link SpellLocal SpellRare
 " other highlights
 hi! link NvimInternalError Error
 hi! link javaScriptLineComment Comment
-
-" misc
 hi! Bold                                        cterm=bold
 hi! FoldColumn                  ctermbg=none
 hi! Italic                                      cterm=italic
 hi! SignColumn                  ctermbg=none
 
+" signs
 sign define LspDiagnosticsSignError text=X texthl=LspDiagnosticsSignError linehl= numhl=
 sign define LspDiagnosticsSignWarning text=! texthl=LspDiagnosticsSignWarning linehl= numhl=
 sign define LspDiagnosticsSignInformation text=i texthl=LspDiagnosticsSignInformation linehl= numhl=
 sign define LspDiagnosticsSignHint text=? texthl=LspDiagnosticsSignHint linehl= numhl=
+call sign_define("LspDiagnosticsErrorSign", {"text" : "X", "texthl" : "LspDiagnosticsError"})
+call sign_define("LspDiagnosticsWarningSign", {"text" : "!", "texthl" : "LspDiagnosticsWarning"})
+call sign_define("LspDiagnosticsInformationSign", {"text" : "i", "texthl" : "LspDiagnosticsInformation"})
+call sign_define("LspDiagnosticsHintSign", {"text" : "?", "texthl" : "LspDiagnosticsHint"})
 
 fu! UpdateGitInfo()
     let b:custom_git_branch = ''
@@ -255,13 +251,13 @@ fu! UpdateGitInfo()
     return b:custom_git_branch
 endfu
 
-function! MarkdownFoldText()
+fu! MarkdownFoldText()
     let linetext = getline(v:foldstart)
     let txt = linetext . ' [...] '
     return txt
 endfunction
 
-function! SetupMarkdown()
+fu! SetupMarkdown()
     setlocal noexpandtab
     setlocal tw=30
     setlocal shiftwidth=4
@@ -271,7 +267,7 @@ function! SetupMarkdown()
     let b:table_mode_corner='+'
 endfunction
 
-function! AutoSave()
+fu! AutoSave()
     silent! wa
 endfunction
 
@@ -301,7 +297,7 @@ let g:currentmode={
     \ 't'  : 't'
     \ }
 
-function! CurrentMode() abort
+fu! CurrentMode() abort
     let l:modecurrent = mode()
     " use get() -> fails safely, since ^V doesn't seem to register. 3rd arg is
     " used when return of mode() == 0, which is the case with ^V.
@@ -311,7 +307,7 @@ function! CurrentMode() abort
     return l:current_status_mode
 endfunction
 
-function! PasteMode()
+fu! PasteMode()
     let paste_status = &paste
     if paste_status == 1
         return "paste"
@@ -325,7 +321,7 @@ set noshowmode
 set statusline=%!ActiveStatus()
 set tabline=%!TabLine()
 
-function! LspCustomStatus() abort
+fu! LspCustomStatus() abort
     if luaeval('#vim.lsp.buf_get_clients() > 0')
         return luaeval("require('lsp-status').status()")
     endif
@@ -333,7 +329,7 @@ function! LspCustomStatus() abort
     return ''
 endfunction
 
-function! ActiveStatus()
+fu! ActiveStatus()
     " PILLS! 
 
     let l:space = '%#StatusLine#  '
@@ -397,7 +393,7 @@ function! ActiveStatus()
     return l:s
 endfunction
 
-function! InactiveStatus()
+fu! InactiveStatus()
     let l:s="%="
     let l:s .= "%#CustomGrayPillOutside#"
     let l:s .= "%#CustomGrayPillInside#"
@@ -414,7 +410,7 @@ augroup END
 
 "" Tab line
 
-function! TabLine()
+fu! TabLine()
     let l:s = ''
     let l:space = '  '
     for i in range(tabpagenr('$'))
@@ -466,14 +462,5 @@ function! TabLine()
     return s
 endfunction
 
-hi TabLine cterm=bold ctermfg=1 guifg=1 ctermbg=none guibg=none
-hi TabLineFill cterm=bold ctermfg=8 guifg=8 ctermbg=none guibg=none
-hi TabLineSel cterm=bold ctermfg=15 guifg=15 ctermbg=none guibg=none
-
 " sudo write
 com! -bar W exe 'w !sudo tee >/dev/null %:p:S' | setl nomod
-
-call sign_define("LspDiagnosticsErrorSign", {"text" : "X", "texthl" : "LspDiagnosticsError"})
-call sign_define("LspDiagnosticsWarningSign", {"text" : "!", "texthl" : "LspDiagnosticsWarning"})
-call sign_define("LspDiagnosticsInformationSign", {"text" : "i", "texthl" : "LspDiagnosticsInformation"})
-call sign_define("LspDiagnosticsHintSign", {"text" : "?", "texthl" : "LspDiagnosticsHint"})
