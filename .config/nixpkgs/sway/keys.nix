@@ -98,6 +98,7 @@ in
   "${sup}+Escape" = "exec ${lockCmd}";
 
   # notifications
+  "Control+Escape" = "exec dunstctl history-pop";
   "${sup}+Minus" = "exec dunstctl history-pop";
   "${sup}+Equal" = "exec dunstctl restore";
   "${sup}+Space" = "exec dunstctl context";
@@ -165,5 +166,4 @@ in
   "${sup}+Shift+e" = ''exec "pw-play $HOME/.nix-profile/share/sounds/musicaflight/stereo/Goodbye.oga; swaymsg exit"'';
 
   # not to be removed until i learn
-  "Control+Escape" = ''exec notify-send "Silly goose" "You replaced Ctrl+Esc with Super+Minus, remember?"'';
 }
