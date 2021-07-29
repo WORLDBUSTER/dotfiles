@@ -21,7 +21,7 @@
         };
 
         Install = {
-          WantedBy = [ "multi-user.target" ];
+          WantedBy = [ "default.target" ];
         };
       };
 
@@ -35,7 +35,7 @@
         };
 
         Install = {
-          WantedBy = [ "multi-user.target" ];
+          WantedBy = [ "default.target" ];
         };
       };
     };
