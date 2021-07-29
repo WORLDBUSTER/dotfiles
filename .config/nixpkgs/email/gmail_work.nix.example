@@ -1,9 +1,15 @@
+let
+  # change these
+  domain = "example.com";
+  realName = "First Last";
+  userName = "???";
+in
 {
-  address = "_____@mycompany.com"; # change this
+  address = "${userName}@${domain}";
   flavor = "gmail.com";
   maildir.path = "work";
   passwordCommand = "pass work/email";
-  realName = "First Last"; # and this
+  realName = realName;
   primary = true;
 
   himalaya = {

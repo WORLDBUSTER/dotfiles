@@ -1,11 +1,16 @@
 # will require hydroxide or other protonmail bridge
+let
+  # change these
+  realName = "First Last";
+  userName = "???";
+in
 {
-  address = "_____@protonmail.com"; # change this
+  address = "${username}@protonmail.com";
   flavor = "plain";
   maildir.path = "protonmail";
   passwordCommand = "pass protonmail/hydroxide";
-  realName = "First Last"; # and this
-  userName = "_____"; # also this
+  realName = realName;
+  userName = userName;
 
   imap = {
     host = "127.0.0.1";
