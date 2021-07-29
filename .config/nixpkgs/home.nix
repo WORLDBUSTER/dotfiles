@@ -40,6 +40,7 @@ in
       # terminal stuff
       fd
       fish
+      glances
       gnupg
       neovim-remote
       notify-desktop
