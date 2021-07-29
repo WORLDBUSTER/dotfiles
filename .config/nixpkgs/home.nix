@@ -69,6 +69,9 @@ in
       # video
       blender
 
+      # email
+      hydroxide
+
       # other apps
       android-file-transfer
       awf
@@ -86,7 +89,6 @@ in
       spotify
 
       # other things
-      hydroxide
       xorg.xcursorgen
     ];
 
@@ -184,6 +186,8 @@ in
   };
 
   services = import ./services.nix { inherit pkgs bemenuOpts colors; };
+
+  systemd = import ./systemd.nix { inherit config pkgs; };
 
   wayland.windowManager.sway = import ./sway/mod.nix { inherit config lib colors bemenuOpts; };
 

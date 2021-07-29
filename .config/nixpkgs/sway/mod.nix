@@ -146,7 +146,6 @@ in
 
         # startup other things
         { command = ''brillo -I''; }
-        { command = ''muse-status-daemon''; }
         { command = ''swayidle -w timeout 270 ${lockWarningCmd} timeout 300 ${lockCmd} timeout 315 ${dpmsOff} resume ${dpmsOn} before-sleep ${lockCmd}''; }
         { command = ''xhost si:localuser:root''; }
         { command = ''xrdb -load ~/.Xresources''; }
