@@ -11,7 +11,7 @@
     services = {
       hydroxide = {
         Unit = {
-          Description = "hydroxide serve";
+          Description = "hydroxide service";
         };
 
         Service = {
