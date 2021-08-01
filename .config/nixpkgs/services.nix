@@ -13,6 +13,7 @@
     settings = {
       general = {
         adjustment-method = "wayland";
+        brightness-night = 0.75;
       };
     };
   };
