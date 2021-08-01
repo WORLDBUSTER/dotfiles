@@ -9,23 +9,6 @@ if [ -f $HOME/.config/fish/private.fish ]
     source $HOME/.config/fish/private.fish
 end > /dev/null
 
-alias btrfs-csum-errors="sudo dmesg | grep 'checksum error at' | cut -d\  -f27- | sed 's/.\$//' | sort | uniq"
-alias btrfs-du="sudo btrfs fi du --si $argv | tee du_full.txt | cut -b 11- | sort -h | tee du_sorted.txt | tail -n3000 | tee du.txt"
-alias config='git --git-dir=$HOME/.dots.git/ --work-tree=$HOME'
-alias gentoo-system-upgrade="sudo emerge -vuUND --autounmask-write --keep-going --with-bdeps=y --backtrack=1000 @world"
-alias notebook='git --git-dir=$HOME/.notebook.git/ --work-tree=$HOME/notebook'
-alias pandoc-preview="~/.config/nvim/pandocPreview.sh"
-
-alias c="config"
-alias g="git"
-alias n="nvim"
-alias q="exit"
-alias r="ranger"
-alias s="sway"
-
-alias nb="notebook"
-alias hm="home-manager"
-
 set fish_greeting ""
 set -gx ANDROID_EMULATOR_USE_SYSTEM_LIBS 1
 set -gx BAT_THEME base16

@@ -20,6 +20,25 @@
 
   fish = {
     enable = true;
+    shellAliases = {
+      btrfs-csum-errors="sudo dmesg | grep 'checksum error at' | cut -d\  -f27- | sed 's/.\$//' | sort | uniq";
+      btrfs-du="sudo btrfs fi du --si $argv | tee du_full.txt | cut -b 11- | sort -h | tee du_sorted.txt | tail -n3000 | tee du.txt";
+      config="git --git-dir=$HOME/.dots.git/ --work-tree=$HOME";
+      gentoo-system-upgrade="sudo emerge -vuUND --autounmask-write --keep-going --with-bdeps=y --backtrack=1000 @world";
+      notebook="git --git-dir=$HOME/.notebook.git/ --work-tree=$HOME/notebook";
+      pandoc-preview="~/.config/nvim/pandocPreview.sh";
+
+      c="config";
+      g="git";
+      h = "himalaya";
+      n="nvim";
+      q="exit";
+      r="ranger";
+      s="sway";
+
+      nb="notebook";
+      hm="home-manager";
+    };
     shellInit = ''
       ${builtins.readFile ./files/fish/colors.fish}
       ${builtins.readFile ./files/fish/init.fish}
