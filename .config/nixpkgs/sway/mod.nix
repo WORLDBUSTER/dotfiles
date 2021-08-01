@@ -150,8 +150,8 @@ in
         { command = ''xhost si:localuser:root''; }
         { command = ''xrdb -load ~/.Xresources''; }
 
-        # (re)start wob
-        { command = "killall wob; mkfifo $SWAYSOCK.wob; tail -f $SWAYSOCK.wob | wob -a bottom -H 24 -W 512 -M 256 -p 4 -o 0 -b 6 --border-color '${wobBorder}' --bar-color '${wobBar}' --background-color '${wobBackground}'"; always = true; }
+        # wob
+        { command = "mkfifo $SWAYSOCK.wob; tail -f $SWAYSOCK.wob | wob -a bottom -H 24 -W 512 -M 256 -p 4 -o 0 -b 6 --border-color '${wobBorder}' --bar-color '${wobBar}' --background-color '${wobBackground}'"; }
 
         # play startup sound
         { command = ''canberra-gtk-play --id=desktop-login''; }
