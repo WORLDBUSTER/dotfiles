@@ -37,11 +37,12 @@ in
       wpgtk
       xdg-desktop-portal-wlr
 
-      # terminal stuff
+      # terminal/cli stuff
       fd
       fish
       glances
       gnupg
+      jdupes
       neovim-remote
       notify-desktop
       pinentry
@@ -92,6 +93,7 @@ in
       spotify
 
       # other things
+      nixpkgs-fmt
       xorg.xcursorgen
     ];
 
