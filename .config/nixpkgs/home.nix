@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  colors = (import ./colors.nix).eevee;
+  colors = (import ./colors.nix).solarizedDark;
 
   fontText = "Inter 12";
 
