@@ -2,7 +2,7 @@ set {
     $mod Mod4
     $alt Mod1
 
-    $volume_down "$HOME/.nix-profile/sounds/musicaflight/stereo/VolumeDown.oga"
+    $volume_down "$HOME/.nix-profile/share/sounds/musicaflight/stereo/VolumeDown.oga"
     $volume_up "$HOME/.nix-profile/share/sounds/musicaflight/stereo/Volume.oga"
 
     # apps
