@@ -59,7 +59,6 @@ hi! QuickFixLine                ctermbg=8       cterm=none
 hi! Substitute      ctermfg=8                   cterm=none
 hi! TabLineSel                  ctermbg=8       cterm=none
 hi! TabLine                     ctermbg=8       cterm=none
-hi! TabLineFill                 ctermbg=8       cterm=none
 hi! PMenu                       ctermbg=8       cterm=none
 hi! MatchParen                  ctermbg=8       cterm=bold
 hi! Todo                        ctermbg=8       cterm=bold,italic
@@ -229,6 +228,7 @@ hi! Bold                                        cterm=bold
 hi! FoldColumn                  ctermbg=none
 hi! Italic                                      cterm=italic
 hi! SignColumn                  ctermbg=none
+hi! TabLineFill                 ctermbg=none    cterm=none
 
 " signs
 sign define LspDiagnosticsSignError text=X texthl=LspDiagnosticsSignError linehl= numhl=
