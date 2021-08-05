@@ -118,6 +118,7 @@ in
       GTK_THEME = "Arc-Dark";
       LEDGER_FILE = "$HOME/Notebook/ledger/main.sfox";
       MOZ_ENABLE_WAYLAND = 1;
+      MOZ_DBUS_REMOTE = 1;
       SUDO_ASKPASS = "ksshaskpass";
       WINEPREFIX = "$HOME/.wine/";
       XBPS_DISTDIR = "$HOME/code/void/packages";
