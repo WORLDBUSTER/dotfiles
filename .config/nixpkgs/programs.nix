@@ -141,13 +141,13 @@
     '';
     font = with pkgs; {
       package = iosevka;
-      name = "Iosevka";
+      name = "Iosevka Muse";
       size = 11;
     };
     settings = {
-      bold_font = "Iosevka Bold";
-      italic_font = "Iosevka Italic";
-      bold_italic_font = "Iosevka Bold Italic";
+      bold_font = "Iosevka Muse Bold";
+      italic_font = "Iosevka Muse Italic";
+      bold_italic_font = "Iosevka Muse Bold Italic";
       background_opacity = "0.90";
     };
   };
