@@ -40,8 +40,8 @@
       hm="home-manager";
     };
     shellInit = ''
-      ${builtins.readFile ./files/fish/colors.fish}
-      ${builtins.readFile ./files/fish/init.fish}
+      ${builtins.readFile ./fish/colors.fish}
+      ${builtins.readFile ./fish/init.fish}
     '';
   };
 

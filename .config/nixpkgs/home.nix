@@ -204,19 +204,19 @@ in
     configFile = {
       "nvim/lua" = {
         recursive = true;
-        source = ./nvim/files/lua;
+        source = ./nvim/lua;
       };
       "nvim/pandoc-preview.sh" = {
         executable = true;
-        source = ./nvim/files/pandoc-preview.sh;
+        source = ./nvim/pandoc-preview.sh;
       };
       "sway/mpris-toggle.sh" = {
         executable = true;
-        source = ./sway/files/mpris-toggle.sh;
+        source = ./sway/mpris-toggle.sh;
       };
       "sway/lock.sh" = {
         executable = true;
-        text = import ./sway/files/lock.sh.base.nix { inherit colors; };
+        text = import ./sway/lock.sh.base.nix { inherit colors; };
       };
     };
   };

@@ -2,7 +2,7 @@
 
 {
   enable = true;
-  extraConfig = builtins.readFile ./files/init.vim;
+  extraConfig = builtins.readFile ./init.vim;
   extraPackages = with pkgs; [
     tree-sitter
   ];
