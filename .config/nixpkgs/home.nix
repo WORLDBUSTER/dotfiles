@@ -61,10 +61,12 @@ in
       # programming
       docker-compose
       gcc
+      lld
       nodejs
       nodePackages.npm
       python3
       rustup
+      rust-analyzer
       tree-sitter
 
       # sound
