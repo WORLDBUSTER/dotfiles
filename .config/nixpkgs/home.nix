@@ -21,6 +21,13 @@ in
   accounts.email = import ./email/mod.nix { inherit config; };
 
   home = {
+    file = {
+      ".vsnip" = {
+        recursive = true;
+        source = ./vsnip;
+      };
+    };
+
     packages = with pkgs; [
       # desktop environment
       bemenu
