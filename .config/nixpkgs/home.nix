@@ -32,6 +32,7 @@ in
       swaybg
       swayidle
       swaylock
+      wf-recorder
       wl-clipboard
       wob
       wpgtk
@@ -217,6 +218,10 @@ in
       "sway/lock.sh" = {
         executable = true;
         text = import ./sway/lock.sh.base.nix { inherit colors; };
+      };
+      "sway/video_capture.fish" = {
+        executable = true;
+        source = ./sway/video_capture.fish;
       };
     };
   };

@@ -41,7 +41,7 @@ bindsym --release {
     $mod+Print exec $screenshot
     $mod+Control+Print exec $screenshot -s
     $mod+Control+$alt+Print exec $screenshot -o
-    $mod+Shift+Print exec $HOME/.config/sway/videocapture.sh
+    $mod+Shift+Print exec $HOME/.config/sway/video_capture.fish
 }
 
 # vim: ft=conf
