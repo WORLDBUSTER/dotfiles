@@ -63,58 +63,58 @@ in
   "${sup}+${alt}+Right" = "resize grow width 20 px";
 
   # close window
-  "${sup}+q" = "kill";
+  "--release ${sup}+q" = "kill";
 
   # switch between floating/tiled layers
-  "${sup}+z" = "focus mode_toggle";
-  "${sup}+Shift+z" = "focus parent";
-  "${sup}+Control+z" = "focus child";
+  "--release ${sup}+z" = "focus mode_toggle";
+  "--release ${sup}+Shift+z" = "focus parent";
+  "--release ${sup}+Control+z" = "focus child";
 
   # change container layout
-  "${sup}+t" = "layout tabbed";
-  "${sup}+y" = "layout toggle split";
-  "${sup}+u" = "layout stacking";
-  "${sup}+o" = "split toggle";
-  "${sup}+f" = "fullscreen toggle";
+  "--release ${sup}+t" = "layout tabbed";
+  "--release ${sup}+y" = "layout toggle split";
+  "--release ${sup}+u" = "layout stacking";
+  "--release ${sup}+o" = "split toggle";
+  "--release ${sup}+f" = "fullscreen toggle";
 
   # shortcuts for apps
-  "${sup}+Control+e" = "exec $HOME/.config/sway/emoji_menu.fish ${bemenuOpts}";
-  "${sup}+Control+n" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "nvim ${notebookDir}/new/(date +%Y%m%d-%H%M%S).md"'';
-  "${sup}+Control+p" = "exec pavucontrol";
-  "${sup}+Control+r" = "exec sh $HOME/.config/toggle_gammastep.sh";
-  "${sup}+Return" = "exec ${terminal}";
-  "${sup}+Shift+b" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "nvim ${notebookDir}/bored.md"'';
-  "${sup}+Shift+m" = "exec ${media}";
-  "${sup}+Shift+n" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "ranger ${notebookDir}"'';
-  "${sup}+a" = "exec ${config.wayland.windowManager.sway.config.menu}";
-  "${sup}+c" = "exec ${terminal} ${execWithShell} qalc";
-  "${sup}+b" = "exec ${music}";
-  "${sup}+e" = "exec ${terminal} ${execWithShell} ranger";
-  "${sup}+n" = "exec ${terminal} ${execWithShell} nvim";
-  "${sup}+p" = "exec ${terminal} ${execWithShell} htop";
-  "${sup}+w" = "exec ${browser}";
+  "--release ${sup}+Control+e" = "exec $HOME/.config/sway/emoji_menu.fish ${bemenuOpts}";
+  "--release ${sup}+Control+n" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "nvim ${notebookDir}/new/(date +%Y%m%d-%H%M%S).md"'';
+  "--release ${sup}+Control+p" = "exec pavucontrol";
+  "--release ${sup}+Control+r" = "exec sh $HOME/.config/toggle_gammastep.sh";
+  "--release ${sup}+Return" = "exec ${terminal}";
+  "--release ${sup}+Shift+b" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "nvim ${notebookDir}/bored.md"'';
+  "--release ${sup}+Shift+m" = "exec ${media}";
+  "--release ${sup}+Shift+n" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "ranger ${notebookDir}"'';
+  "--release ${sup}+a" = "exec ${config.wayland.windowManager.sway.config.menu}";
+  "--release ${sup}+c" = "exec ${terminal} ${execWithShell} qalc";
+  "--release ${sup}+b" = "exec ${music}";
+  "--release ${sup}+e" = "exec ${terminal} ${execWithShell} ranger";
+  "--release ${sup}+n" = "exec ${terminal} ${execWithShell} nvim";
+  "--release ${sup}+p" = "exec ${terminal} ${execWithShell} htop";
+  "--release ${sup}+w" = "exec ${browser}";
 
   # lock
-  "${sup}+Escape" = "exec ${lockCmd}";
+  "--release ${sup}+Escape" = "exec ${lockCmd}";
 
   # notifications
-  "Control+Escape" = "exec dunstctl history-pop";
-  "${sup}+Minus" = "exec dunstctl history-pop";
-  "${sup}+Equal" = "exec dunstctl restore";
-  "${sup}+Space" = "exec dunstctl context";
+  "--release Control+Escape" = "exec dunstctl history-pop";
+  "--release ${sup}+Minus" = "exec dunstctl history-pop";
+  "--release ${sup}+Equal" = "exec dunstctl restore";
+  "--release ${sup}+Space" = "exec dunstctl context";
 
   # toggle floating. also set border in case we're coming from floating video mode
-  "${sup}+s" = "floating toggle; border normal 6";
+  "--release ${sup}+s" = "floating toggle; border normal 6";
 
   # floating video mode
-  "${sup}+i" = "fullscreen disable,\\
+  "--release ${sup}+i" = "fullscreen disable,\\
   floating enable,\\
   sticky enable,\\
   border pixel 6,\\
   resize set 356 200,\\
   move position 1564 px 0 px,\\
   inhibit_idle open";
-  "${sup}+Shift+i" = "fullscreen disable,\\
+  "--release ${sup}+Shift+i" = "fullscreen disable,\\
   floating enable,\\
   sticky enable,\\
   border pixel 6,\\
@@ -147,23 +147,20 @@ in
   "${sup}+Shift+0" = "move container to workspace ${workspace 9}";
 
   # scratchpad (minimize)
-  "${sup}+v" = "move scratchpad";
-  "${sup}+Shift+v" = "scratchpad show";
+  "--release ${sup}+v" = "move scratchpad";
+  "--release ${sup}+Shift+v" = "scratchpad show";
 
-  # reload with same or random wallpaper
-  "${sup}+Shift+r" = "reload";
-  "${sup}+Control+w" = "exec wpg -m, reload";
+  # reload
+  "--release ${sup}+Shift+r" = "reload";
 
   # record clock times (easy clock-in or clock-out :))
-  "${sup}+Delete" = "exec ${notebookDir}/record_time.fish";
-  "${sup}+Home" = "exec ${notebookDir}/record_time.fish '(clock-in)'";
-  "${sup}+End" = "exec ${notebookDir}/record_time.fish '(clock-out)'";
-  "${sup}+Shift+Delete" = "exec ~/.config/sway/prompt_timestamp.fish ${bemenuOpts}";
-  "${sup}+Shift+Home" = "exec ~/.config/sway/prompt_clock_in.fish ${bemenuOpts}";
-  "${sup}+Shift+End" = "exec ~/.config/sway/prompt_clock_out.fish ${bemenuOpts}";
+  "--release ${sup}+Delete" = "exec ${notebookDir}/record_time.fish";
+  "--release ${sup}+Home" = "exec ${notebookDir}/record_time.fish '(clock-in)'";
+  "--release ${sup}+End" = "exec ${notebookDir}/record_time.fish '(clock-out)'";
+  "--release ${sup}+Shift+Delete" = "exec ~/.config/sway/prompt_timestamp.fish ${bemenuOpts}";
+  "--release ${sup}+Shift+Home" = "exec ~/.config/sway/prompt_clock_in.fish ${bemenuOpts}";
+  "--release ${sup}+Shift+End" = "exec ~/.config/sway/prompt_clock_out.fish ${bemenuOpts}";
 
   # exit sway
   "${sup}+Shift+e" = ''exec "pw-play $HOME/.nix-profile/share/sounds/musicaflight/stereo/Goodbye.oga; swaymsg exit"'';
-
-  # not to be removed until i learn
 }
