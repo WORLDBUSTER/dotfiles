@@ -78,7 +78,7 @@ in
   "--release ${sup}+f" = "fullscreen toggle";
 
   # shortcuts for apps
-  "--release ${sup}+Control+e" = "exec $HOME/.config/sway/emoji_menu.fish ${bemenuOpts}";
+  "--release ${sup}+Control+e" = "exec $HOME/.config/sway/scripts/emoji_menu.fish ${bemenuOpts}";
   "--release ${sup}+Control+n" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "nvim ${notebookDir}/new/(date +%Y%m%d-%H%M%S).md"'';
   "--release ${sup}+Control+p" = "exec pavucontrol";
   "--release ${sup}+Control+r" = "exec sh $HOME/.config/toggle_gammastep.sh";
@@ -157,9 +157,9 @@ in
   "--release ${sup}+Delete" = "exec ${notebookDir}/record_time.fish";
   "--release ${sup}+Home" = "exec ${notebookDir}/record_time.fish '(clock-in)'";
   "--release ${sup}+End" = "exec ${notebookDir}/record_time.fish '(clock-out)'";
-  "--release ${sup}+Shift+Delete" = "exec ~/.config/sway/prompt_timestamp.fish ${bemenuOpts}";
-  "--release ${sup}+Shift+Home" = "exec ~/.config/sway/prompt_clock_in.fish ${bemenuOpts}";
-  "--release ${sup}+Shift+End" = "exec ~/.config/sway/prompt_clock_out.fish ${bemenuOpts}";
+  "--release ${sup}+Shift+Delete" = "exec $HOME/.config/sway/scripts/prompt_timestamp.fish ${bemenuOpts}";
+  "--release ${sup}+Shift+Home" = "exec $HOME/.config/sway/scripts/prompt_clock_in.fish ${bemenuOpts}";
+  "--release ${sup}+Shift+End" = "exec $HOME/.config/sway/scripts/prompt_clock_out.fish ${bemenuOpts}";
 
   # exit sway
   "${sup}+Shift+e" = ''exec "pw-play $HOME/.nix-profile/share/sounds/musicaflight/stereo/Goodbye.oga; swaymsg exit"'';

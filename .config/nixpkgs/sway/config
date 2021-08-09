@@ -6,7 +6,7 @@ set {
     $volume_up "$HOME/.nix-profile/share/sounds/musicaflight/stereo/Volume.oga"
 
     # apps
-    $screenshot $HOME/.config/sway/screenshot.fish
+    $screenshot $HOME/.config/sway/scripts/screenshot.fish
 }
 
 # some options
@@ -31,7 +31,7 @@ bindsym --locked {
 
 # player controls
 bindsym --locked --no-repeat {
-    XF86AudioPlay exec mpc toggle || ./mpris-toggle.sh
+    XF86AudioPlay exec mpc toggle || $HOME/.config/sway/scripts/mpris_toggle.sh
     XF86AudioNext exec mpc next || playerctl next
     XF86AudioPrev exec mpc cdprev || playerctl previous
 }
@@ -41,7 +41,7 @@ bindsym --release {
     $mod+Print exec $screenshot
     $mod+Control+Print exec $screenshot -s
     $mod+Control+$alt+Print exec $screenshot -o
-    $mod+Shift+Print exec $HOME/.config/sway/video_capture.fish
+    $mod+Shift+Print exec $HOME/.config/sway/scripts/video_capture.fish
 }
 
 # vim: ft=conf

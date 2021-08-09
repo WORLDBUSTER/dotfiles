@@ -223,17 +223,14 @@ in
         executable = true;
         source = ./ranger;
       };
-      "sway/mpris-toggle.sh" = {
+      "sway/scripts" = {
         executable = true;
-        source = ./sway/mpris-toggle.sh;
+        recursive = true;
+        source = ./sway/scripts;
       };
-      "sway/lock.sh" = {
+      "sway/scripts/lock.sh" = {
         executable = true;
-        text = import ./sway/lock.sh.base.nix { inherit colors; };
-      };
-      "sway/video_capture.fish" = {
-        executable = true;
-        source = ./sway/video_capture.fish;
+        text = import ./sway/lock_script.nix { inherit colors; };
       };
     };
   };
