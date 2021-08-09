@@ -211,6 +211,11 @@ in
         executable = true;
         source = ./nvim/pandoc-preview.sh;
       };
+      "ranger" = {
+        recursive = true;
+        executable = true;
+        source = ./ranger;
+      };
       "sway/mpris-toggle.sh" = {
         executable = true;
         source = ./sway/mpris-toggle.sh;
