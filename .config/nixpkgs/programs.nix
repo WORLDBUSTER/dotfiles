@@ -166,6 +166,17 @@
     };
   };
 
+  mpv = {
+    enable = true;
+    package = pkgs.mpv-with-scripts.override {
+      scripts = with pkgs.mpvScripts; [
+        mpris
+        thumbnail
+        youtube-quality
+      ];
+    };
+  };
+
   skim = {
     enable = true;
     enableFishIntegration = true;
