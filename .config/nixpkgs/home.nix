@@ -100,6 +100,7 @@ in
       signal-desktop
       slack
       spotify
+      xournalpp
 
       # other things
       nixpkgs-fmt
