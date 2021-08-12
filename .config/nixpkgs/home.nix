@@ -43,7 +43,6 @@ in
       wl-clipboard
       wob
       wpgtk
-      xdg-desktop-portal-wlr
 
       # terminal/cli stuff
       fd
@@ -100,6 +99,7 @@ in
       signal-desktop
       slack
       spotify
+      torbrowser
       xournalpp
 
       # other things
