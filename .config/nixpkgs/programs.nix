@@ -38,6 +38,7 @@
 
       nb = "notebook";
       hm = "home-manager";
+      yt = "ytfzf --thumb-disp-method=chafa -t --detach";
     };
     shellInit = ''
       ${builtins.readFile ./fish/colors.fish}
