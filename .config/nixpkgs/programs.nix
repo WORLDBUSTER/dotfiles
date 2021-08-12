@@ -182,6 +182,11 @@
     defaultCommand = ''fd --type f'';
   };
 
+  starship = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
   texlive = {
     enable = true;
   };
