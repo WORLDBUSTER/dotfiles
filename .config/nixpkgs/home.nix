@@ -103,6 +103,7 @@ in
       xournalpp
 
       # other things
+      imagemagick
       nixpkgs-fmt
       xorg.xcursorgen
     ];
