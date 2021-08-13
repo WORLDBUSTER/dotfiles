@@ -182,10 +182,7 @@
     defaultCommand = ''fd --type f'';
   };
 
-  starship = {
-    enable = true;
-    enableFishIntegration = true;
-  };
+  starship = import ./starship.nix { };
 
   texlive = {
     enable = true;
