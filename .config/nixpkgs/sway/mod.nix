@@ -134,9 +134,6 @@ in
     # startup apps
     startup =
       let
-        wobBorder = "#e5${colors.palette.gray}";
-        wobBar = "#ff${colors.palette.primary}";
-        wobBackground = "#e5${colors.palette.black}";
         lockWarningCmd = "notify-send -u low -t 29500 -- 'Are you still there?' 'Your system will lock itself soon.'";
       in
       [
@@ -151,7 +148,7 @@ in
         { command = ''xrdb -load ~/.Xresources''; }
 
         # wob
-        { command = ''"mkfifo $SWAYSOCK.wob; tail -f $SWAYSOCK.wob | wob -a bottom -H 24 -W 512 -M 256 -p 4 -o 0 -b 6 --border-color '${wobBorder}' --bar-color '${wobBar}' --background-color '${wobBackground}'"''; }
+        { command = "$HOME/.config/sway/scripts/start_wob.sh"; }
 
         # play startup sound
         { command = ''canberra-gtk-play --id=desktop-login''; }

@@ -246,6 +246,14 @@ in
         executable = true;
         text = import ./sway/lock_script.nix { inherit colors; };
       };
+      "sway/scripts/start_wob.sh" = {
+        executable = true;
+        text = import ./sway/wob_script.nix {
+          backgroundColor = colors.palette.black;
+          borderColor = colors.palette.gray;
+          barColor = colors.palette.primary;
+        };
+      };
       "waybar" = {
         recursive = true;
         source = ./waybar;
