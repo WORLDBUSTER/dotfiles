@@ -15,7 +15,7 @@
 ./Kitware/
 ./Ledger Live/
 ./Microsoft/
-./OpenRGB/*.log
+./OpenRGB/
 ./Postman/
 ./QtProject.conf
 ./Qtwebflix/
@@ -131,6 +131,7 @@
 ./blender/
 !./blender/**/userpref.blend
 
+# wpgtk
 ./wpg/formats
 ./wpg/samples
 ./wpg/schemes
@@ -138,8 +139,6 @@
 ./wpg/sequences
 ./wpg/wp_init.sh
 ./wpg/.current
-
-# wpgtk
 ./wpg/templates/*
 !.wpg/templates/*.base
 ./alacritty/alacritty.yml
