@@ -249,7 +249,7 @@ in
       "waybar" = {
         recursive = true;
         source = ./waybar;
-      }
+      };
     };
   };
 

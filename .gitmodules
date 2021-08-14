@@ -1,3 +1,0 @@
-[submodule ".config/awesome"]
-	path = /home/muni/.config/awesome
-	url = https://github.com/muni-corn/awesomewm-config
