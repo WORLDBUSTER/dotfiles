@@ -26,6 +26,15 @@ in
         recursive = true;
         source = ./vsnip;
       };
+      ".rustfmt.toml" = {
+        source = ./rustfmt.toml;
+      };
+      ".npmrc" = {
+        source = ./npmrc;
+      };
+      ".gnupg/gpg-agent.conf" = {
+        source = ./gpg/agent.conf;
+      };
     };
 
     packages = with pkgs; [
@@ -237,6 +246,10 @@ in
         executable = true;
         text = import ./sway/lock_script.nix { inherit colors; };
       };
+      "waybar" = {
+        recursive = true;
+        source = ./waybar;
+      }
     };
   };
 
