@@ -211,6 +211,9 @@ in
   xdg = {
     enable = true;
     configFile = {
+      "muse-status/daemon.yaml" = {
+        source = ./muse_status_daemon.yaml;
+      };
       "nvim/lua" = {
         recursive = true;
         source = ./nvim/lua;

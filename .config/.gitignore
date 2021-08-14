@@ -170,5 +170,6 @@
 ./git/
 ./gtk-3.0/
 ./kitty/
+./muse-status/
 ./nvim/
-./ranger
+./ranger/
