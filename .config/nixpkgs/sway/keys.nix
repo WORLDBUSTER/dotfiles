@@ -81,7 +81,7 @@ in
   "--no-repeat ${sup}+Control+e" = "exec $HOME/.config/sway/scripts/emoji_menu.fish ${bemenuOpts}";
   "--no-repeat ${sup}+Control+n" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "nvim ${notebookDir}/new/(date +%Y%m%d-%H%M%S).md"'';
   "--no-repeat ${sup}+Control+p" = "exec pavucontrol";
-  "--no-repeat ${sup}+Control+r" = "exec sh $HOME/.config/toggle_gammastep.sh";
+  "--no-repeat ${sup}+Control+r" = "exec $HOME/.config/sway/scripts/toggle_gammastep.fish";
   "--no-repeat ${sup}+Return" = "exec ${terminal}";
   "--no-repeat ${sup}+Shift+b" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "nvim ${notebookDir}/bored.md"'';
   "--no-repeat ${sup}+Shift+m" = "exec ${media}";
