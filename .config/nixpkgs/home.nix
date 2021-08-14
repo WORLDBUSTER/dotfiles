@@ -45,6 +45,7 @@ in
       wpgtk
 
       # terminal/cli stuff
+      cava
       fd
       fish
       glances
