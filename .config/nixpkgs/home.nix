@@ -238,7 +238,6 @@ in
         source = ./ranger;
       };
       "sway/scripts" = {
-        executable = true;
         recursive = true;
         source = ./sway/scripts;
       };
