@@ -55,6 +55,7 @@ in
 
       # terminal/cli stuff
       cava
+      chafa
       fd
       fish
       glances
@@ -69,6 +70,7 @@ in
       ripgrep
       sd
       spotify-tui
+      ytfzf
       zip
 
       # fish plugins
