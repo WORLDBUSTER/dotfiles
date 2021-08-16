@@ -22,7 +22,7 @@ let
   primary = "#${colors.palette.primary}e5";
   warning = "#${colors.palette.warning}e5";
 
-  lockCmd = "$HOME/.config/sway/scripts/lock.sh";
+  lockCmd = "$HOME/.config/sway/scripts/lock.fish --bg-color ${colors.palette.background} --fg-color ${colors.palette.foreground} --primary-color ${colors.palette.primary} --warning-color ${colors.palette.warning} --error-color ${colors.palette.alert}";
 
   dpmsOff = "swaymsg 'output * dpms off'";
   dpmsOn = "swaymsg 'output * dpms on'";

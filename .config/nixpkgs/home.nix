@@ -61,6 +61,7 @@ in
       glances
       gnupg
       jdupes
+      jq
       neovim-remote
       notify-desktop
       pinentry
@@ -242,10 +243,6 @@ in
       "sway/scripts" = {
         recursive = true;
         source = ./sway/scripts;
-      };
-      "sway/scripts/lock.sh" = {
-        executable = true;
-        text = import ./sway/lock_script.nix { inherit colors; };
       };
       "sway/scripts/start_wob.sh" = {
         executable = true;

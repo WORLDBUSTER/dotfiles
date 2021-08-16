@@ -1,6 +1,3 @@
-{ colors, ... }:
-
-''
 #! /usr/bin/env fish
 
 if pgrep -x swaylock > /dev/null
@@ -9,7 +6,7 @@ if pgrep -x swaylock > /dev/null
 end
 
 # parse args
-argparse "n/no-fork" "s/startup" -- $argv; or exit $status
+argparse "n/no-fork" "s/startup" "bg-color=" "fg-color=" "primary-color=" "warning-color=" "error-color=" -- $argv; or exit $status
 
 set fork_arg
 if set -q $_flag_no_fork
@@ -19,33 +16,41 @@ else
     set fork_arg '-f'
 end
 
-set background "$HOME/.lock_screen.jpg"
-
 if ! set -q _flag_startup
     pw-play "/usr/share/sounds/musicaflight/stereo/Lock.oga" &
 else
     echo "running in startup mode"
 end
 
-set background "${colors.palette.background}"
-set primary "${colors.base05}c0"
-set primary_faded "${colors.base05}80"
-set secondary "${colors.palette.primary}80"
+set background $_flag_bg_color
+set error "{$_flag_error_color}c0"
+set foreground "{$_flag_fg_color}c0"
+set foreground_faded "{$_flag_fg_color}80"
+set primary "{$_flag_primary_color}80"
 set transparent "00000000"
-set warning "${colors.palette.warning}"
+set warning "{$_fg_warning_color}"
 
-# take screenshot and blur it
-grim $background
-convert $background \
-    -resize 5% \
-    -fill $background \
-    -colorize 25% \
-    -blur 10x2 \
-    -resize 2000% \
-    $background
+set image_args ""
+set images
+
+# take screenshot of each output and blur it
+for output in (swaymsg -t get_outputs | jq -r '.[] | select(.active == true) | .name')
+    set image_file "$HOME/.lock-$output.jpg"
+    grim -o $output $image_file
+    convert $image_file \
+       -resize 5% \
+       -fill $background \
+       -colorize 25% \
+       -blur 10x2 \
+       -resize 2000% \
+       $image_file
+    # TODO: use `composite` to overlay a lock icon
+    set image_args $image_args "--image" "$output:$image_file"
+    set images $images $image_file
+end
 
 swaylock $fork_arg \
-    --image "$background" \
+    $image_args \
 \
     --ignore-empty-password \
     --scaling=fill \
@@ -54,7 +59,7 @@ swaylock $fork_arg \
     --color 000000 \
 \
     --ring-color=$transparent \
-    --ring-wrong-color=${colors.palette.alert}aa \
+    --ring-wrong-color=$error \
     --ring-ver-color=$transparent \
     --ring-caps-lock-color=$transparent \
     --ring-clear-color=$warning \
@@ -68,23 +73,24 @@ swaylock $fork_arg \
     --inside-clear-color=$transparent \
     --inside-caps-lock-color=$transparent \
 \
-    --key-hl-color=$primary_faded \
-    --bs-hl-color=$secondary \
+    --key-hl-color=$foreground_faded \
+    --bs-hl-color=$primary \
     --caps-lock-key-hl-color=$warning \
-    --caps-lock-bs-hl-color=$secondary \
+    --caps-lock-bs-hl-color=$primary \
     --separator-color=$transparent \
     -n \
 \
-    --text-color=$primary \
+    --text-color=$foreground \
     --text-ver-color=$transparent \
     --text-clear-color=$transparent \
     --text-wrong-color=$transparent \
     --text-caps-lock-color=$warning \
 \
     --font "sans Thin" \
-    --font-size 128 \
+    --font-size 12 \
+
+rm $images
 
 if set -q _flag_startup
     pw-play "$HOME/Music/MuseSounds/stereo/Hello.oga"
 end
-''
