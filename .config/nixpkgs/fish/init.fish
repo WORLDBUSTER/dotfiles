@@ -1,5 +1,4 @@
 fenv source /etc/profile
-fenv source ~/.bashrc
 
 if [ -f $HOME/.config/fish/colors.fish ]
     source $HOME/.config/fish/colors.fish
