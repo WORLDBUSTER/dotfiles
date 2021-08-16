@@ -127,7 +127,7 @@ in
 
       # for all
       "*" = {
-        background = ''"$HOME/Pictures/Wallpapers/Eevee/Night.jpeg" fill'';
+        background = ''"$HOME/Pictures/Wallpapers/Paints/ocean/dark.png" fill'';
       };
     };
 
