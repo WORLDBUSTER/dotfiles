@@ -1,4 +1,3 @@
-{ overlays }:
 { config, lib, pkgs, ... }:
 
 let
@@ -16,11 +15,6 @@ let
   gtkIconThemeName = "Papirus-Dark";
 in
 {
-  nixpkgs = {
-    inherit overlays;
-    config.allowUnfree = true;
-  };
-
   accounts.email = import ./email/mod.nix { inherit config; };
 
   home = {

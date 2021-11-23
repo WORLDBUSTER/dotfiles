@@ -13,7 +13,7 @@
     };
   };
 
-  outputs = { self, ... } @ inputs: {
+  outputs = { self, nixpkgs, ... } @ inputs: {
     homeConfigurations =
       let
         overlays = [
@@ -26,7 +26,14 @@
           homeDirectory = "/home/municorn";
           username = "municorn";
           stateVersion = "21.11";
-          configuration = import ./home.nix { inherit overlays; };
+          configuration = {
+            imports = [ ./home.nix ];
+
+            nixpkgs = {
+              inherit overlays;
+              config.allowUnfree = true;
+            };
+          };
         };
       };
   };
