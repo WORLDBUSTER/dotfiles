@@ -64,16 +64,16 @@
           };
         };
 
-      kittyOverlay = final: prev:
+      nextOverlay = final: prev:
         let next-pkgs = import nixpkgs-next { inherit (prev) system; }; in
         {
-          kitty = next-pkgs.kitty;
+          inherit (next-pkgs) kitty remarshal;
         };
 
       overlaysModule = { config, lib, pkgs, ... }: {
         nixpkgs.overlays = [
           iosevka-muse.overlay
-          kittyOverlay
+          nextOverlay
           muse-sounds.overlay
           muse-status.overlay
           neovim-nightly-overlay.overlay
