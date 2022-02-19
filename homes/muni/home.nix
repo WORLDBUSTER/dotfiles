@@ -1,4 +1,3 @@
-{ overlays ? [ ] }:
 { config, lib, pkgs, ... }:
 
 let
@@ -21,11 +20,6 @@ in
   imports = [
     ./muse-status.nix
   ];
-
-  nixpkgs = {
-    inherit overlays;
-    config.allowUnfree = true;
-  };
 
   accounts.email = import ./email/mod.nix { inherit config; };
 

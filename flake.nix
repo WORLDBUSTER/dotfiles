@@ -1,6 +1,10 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     plymouth-theme-musicaloft-rainbow = {
       url = "git+https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -13,26 +17,89 @@
       url = "git+https://codeberg.org/municorn/muse-sounds";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    muse-status = {
+      url = "git+https://codeberg.org/municorn/muse-status";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # hotpot.nvim plugin
+    hotpot-nvim = {
+      url = "github:rktjmp/hotpot.nvim";
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, plymouth-theme-musicaloft-rainbow, iosevka-muse, muse-sounds }:
+  outputs =
+    { self
+    , nixpkgs
+    , nixpkgs-stable
+    , home-manager
+    , hotpot-nvim
+    , iosevka-muse
+    , muse-sounds
+    , muse-status
+    , neovim-nightly-overlay
+    , plymouth-theme-musicaloft-rainbow
+    }:
     let
-      overlaysModule = { config, pkgs, ... }: {
+      vimPluginOverlay = final: prev:
+        let
+          lock = builtins.fromJSON (builtins.readFile ./flake.lock);
+          hotpotLock = lock.nodes.hotpot-nvim.locked;
+        in
+        {
+          vimPlugins = prev.vimPlugins // {
+            hotpot-nvim = prev.vimUtils.buildVimPlugin {
+              name = "hotpot.nvim";
+              src = prev.fetchFromGitHub {
+                inherit (hotpotLock) owner repo rev;
+                sha256 = hotpotLock.narHash;
+              };
+            };
+          };
+        };
+
+      pingOverlay = final: prev:
+        let pkgs-stable = import nixpkgs-stable { inherit (prev) system; }; in
+        {
+          ping = pkgs-stable.ping;
+        };
+
+      overlaysModule = { config, lib, pkgs, ... }: {
         nixpkgs.overlays = [
-          plymouth-theme-musicaloft-rainbow.overlay
           iosevka-muse.overlay
           muse-sounds.overlay
+          muse-status.overlay
+          neovim-nightly-overlay.overlay
+          pingOverlay
+          plymouth-theme-musicaloft-rainbow.overlay
+          vimPluginOverlay
         ];
       };
+      extraModules = [
+        overlaysModule
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.municorn = import ./homes/muni/home.nix;
+          };
+        }
+      ];
     in
     {
       nixosConfigurations.littlepony = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./laptop-configuration.nix overlaysModule ];
+        modules = extraModules ++ [ ./laptop-configuration.nix ];
       };
       nixosConfigurations.ponytower = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./desktop-configuration.nix overlaysModule ];
+        modules = extraModules ++ [ ./desktop-configuration.nix ];
       };
     };
 }
