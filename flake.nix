@@ -1,6 +1,7 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-next.url = "github:nixos/nixpkgs/nixos-unstable-small";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,7 +37,7 @@
   outputs =
     { self
     , nixpkgs
-    , nixpkgs-stable
+    , nixpkgs-next
     , home-manager
     , hotpot-nvim
     , iosevka-muse
@@ -63,19 +64,19 @@
           };
         };
 
-      pingOverlay = final: prev:
-        let pkgs-stable = import nixpkgs-stable { inherit (prev) system; }; in
+      kittyOverlay = final: prev:
+        let next-pkgs = import nixpkgs-next { inherit (prev) system; }; in
         {
-          ping = pkgs-stable.ping;
+          kitty = next-pkgs.kitty;
         };
 
       overlaysModule = { config, lib, pkgs, ... }: {
         nixpkgs.overlays = [
           iosevka-muse.overlay
+          kittyOverlay
           muse-sounds.overlay
           muse-status.overlay
           neovim-nightly-overlay.overlay
-          pingOverlay
           plymouth-theme-musicaloft-rainbow.overlay
           vimPluginOverlay
         ];
