@@ -141,7 +141,7 @@ in
           signal-desktop
           slack
           spotify
-          torbrowser
+          tor-browser-bundle-bin
           xournalpp
 
           # wine

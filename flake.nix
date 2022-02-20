@@ -67,7 +67,7 @@
       nextOverlay = final: prev:
         let next-pkgs = import nixpkgs-next { inherit (prev) system; }; in
         {
-          inherit (next-pkgs) kitty remarshal;
+          inherit (next-pkgs) kitty remarshal tor-browser-bundle-bin;
         };
 
       overlaysModule = { config, lib, pkgs, ... }: {
