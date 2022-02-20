@@ -94,13 +94,15 @@
       ];
     in
     {
-      nixosConfigurations.littlepony = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = extraModules ++ [ ./laptop-configuration.nix ];
-      };
-      nixosConfigurations.ponytower = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = extraModules ++ [ ./desktop-configuration.nix ];
+      nixosConfigurations = {
+        littlepony = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = extraModules ++ [ ./laptop-configuration.nix ];
+        };
+        ponytower = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = extraModules ++ [ ./desktop-configuration.nix ];
+        };
       };
     };
 }
