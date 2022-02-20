@@ -18,19 +18,15 @@
       url = "git+https://codeberg.org/municorn/muse-sounds";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    muse-status = {
-      url = "git+https://codeberg.org/municorn/muse-status";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # hotpot.nvim plugin
-    hotpot-nvim = {
-      url = "github:rktjmp/hotpot.nvim";
-      flake = false;
+    # my home sweet home
+    municorn-home = {
+      url = "git+https://codeberg.org/municorn/dotfiles";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -38,31 +34,14 @@
     { self
     , nixpkgs
     , nixpkgs-next
+    , municorn-home
     , home-manager
-    , hotpot-nvim
     , iosevka-muse
     , muse-sounds
-    , muse-status
     , neovim-nightly-overlay
     , plymouth-theme-musicaloft-rainbow
     }:
     let
-      vimPluginOverlay = final: prev:
-        let
-          lock = builtins.fromJSON (builtins.readFile ./flake.lock);
-          hotpotLock = lock.nodes.hotpot-nvim.locked;
-        in
-        {
-          vimPlugins = prev.vimPlugins // {
-            hotpot-nvim = prev.vimUtils.buildVimPlugin {
-              name = "hotpot.nvim";
-              src = prev.fetchFromGitHub {
-                inherit (hotpotLock) owner repo rev;
-                sha256 = hotpotLock.narHash;
-              };
-            };
-          };
-        };
 
       nextOverlay = final: prev:
         let next-pkgs = import nixpkgs-next { inherit (prev) system; }; in
@@ -75,32 +54,26 @@
           iosevka-muse.overlay
           nextOverlay
           muse-sounds.overlay
-          muse-status.overlay
-          neovim-nightly-overlay.overlay
           plymouth-theme-musicaloft-rainbow.overlay
-          vimPluginOverlay
         ];
       };
       extraModules = [
         overlaysModule
-        home-manager.nixosModules.home-manager
-        {
-          home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.municorn = import ./homes/muni/home.nix;
-          };
-        }
       ];
     in
     {
-      nixosConfigurations.littlepony = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = extraModules ++ [ ./laptop-configuration.nix ];
+      nixosConfigurations = {
+        littlepony = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = extraModules ++ [ ./laptop-configuration.nix ];
+        };
+        ponytower = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = extraModules ++ [ ./desktop-configuration.nix ];
+        };
       };
-      nixosConfigurations.ponytower = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = extraModules ++ [ ./desktop-configuration.nix ];
+      homeConfigurations = {
+        inherit (municorn-home.homeConfigurations) municorn;
       };
     };
 }
