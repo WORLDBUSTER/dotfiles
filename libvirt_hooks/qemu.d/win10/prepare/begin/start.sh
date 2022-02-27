@@ -1,44 +1,29 @@
-#!/run/current-system/sw/bin/bash
+#!/usr/bin/env bash
 
-# For debugging
+# print commands as they are run
 set -x
 
 # Load variables we defined
 source "/etc/libvirt/hooks/kvm.conf"
 
-# TODO: needed?
-# Change to performance governor
-# echo performance | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
-
-# TODO: needed?
-# Isolate host to core 0
-# systemctl set-property --runtime -- user.slice AllowedCPUs=0
-# systemctl set-property --runtime -- system.slice AllowedCPUs=0
-# systemctl set-property --runtime -- init.scope AllowedCPUs=0
-
-# Stop display manager
-systemctl stop display-manager.service
-systemctl stop gdm.service
+# Stop graphical sessions
+# *shrug*
 
 # Unbind VTconsoles
 echo 0 > /sys/class/vtconsole/vtcon0/bind
 echo 0 > /sys/class/vtconsole/vtcon1/bind
 
-# XXX: Supposedly, this causes a segfault with amd hardware
-# Unbind EFI Framebuffer
-echo efi-framebuffer.0 > /sys/bus/platform/drivers/efi-framebuffer/unbind
+# Avoid a race condition
+sleep 5
 
-# Avoid race condition
-# sleep 5
-
-# Unload amdgpu kernel modules
-modprobe -r amdgpu
+# Unload all AMD drivers or exit
+modprobe -r amdgpu || exit 1
 
 # Detach GPU devices from host
 virsh nodedev-detach $VIRSH_GPU_VIDEO
 virsh nodedev-detach $VIRSH_GPU_AUDIO
 
-# Load vfio module
+# Load VFIO kernel module
 modprobe vfio
 modprobe vfio_pci
 modprobe vfio_iommu_type1

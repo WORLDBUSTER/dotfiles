@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   # Boot configuration
-  boot.kernelParams = [ "amd_iommu=on" "iommu=pt" ];
+  boot.kernelParams = [ "amd_iommu=on" "iommu=pt" "video=efifb:off" ];
   boot.kernelModules = [ "kvm-amd" "vfio-pci" ];
 
   # Enable libvirtd
@@ -10,13 +10,20 @@
     onBoot = "ignore";
     onShutdown = "shutdown";
     qemu = {
+      package = pkgs.qemu_kvm;
       ovmf.enable = true;
       runAsRoot = true;
     };
+    extraConfig = ''
+      unix_sock_group="libvirtd"
+      unix_sock_rw_perms="0770"
+      log_filters="1:qemu"
+      log_outputs="1:journald"
+    '';
   };
 
-  # Add binaries to path so that hooks can use it
   systemd.services.libvirtd = {
+    # Add binaries to path so that hooks can use it
     path =
       let
         env = pkgs.buildEnv {
