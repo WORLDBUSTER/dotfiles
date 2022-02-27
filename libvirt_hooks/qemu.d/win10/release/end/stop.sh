@@ -19,8 +19,11 @@ virsh nodedev-reattach $VIRSH_GPU_AUDIO
 echo 1 > /sys/class/vtconsole/vtcon0/bind
 echo 1 > /sys/class/vtconsole/vtcon1/bind
 
-# Loads amd drivers
+# Load AMD drivers
+modprobe snd_hda_intel
 modprobe amdgpu
+#echo -n "pci_0000_28_00_1" > /sys/bus/pci/drivers/snd_hda_intel/bind
+#echo -n "pci_0000_28_00_0" > /sys/bus/pci/drivers/amdgpu/bind
 
 # Reload any graphical sessions
 # *shrug*
