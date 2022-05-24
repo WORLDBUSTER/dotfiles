@@ -97,18 +97,6 @@ in
         # email
         hydroxide
 
-        # apps
-        android-file-transfer
-        awf
-        imv
-        keepassxc
-        keybase-gui
-        kodi
-        ledger-live-desktop
-        libreoffice-fresh
-        tor-browser-bundle-bin
-        xournalpp
-
         # emulators and "emulators"
         wine
         desmume

@@ -73,6 +73,18 @@ in
           element-desktop
           signal-desktop
           slack
+
+          # apps
+          android-file-transfer
+          awf
+          imv
+          keepassxc
+          keybase-gui
+          kodi
+          ledger-live-desktop
+          libreoffice-fresh
+          tor-browser-bundle-bin
+          xournalpp
         ] ++
 
         # ponycastle-specific packages
