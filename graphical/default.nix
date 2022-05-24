@@ -103,6 +103,28 @@ in
           space-cadet-pinball
           the-powder-toy
           vitetris
+
+          # terminal/cli stuff (only useful with GUI)
+          chafa
+          ffmpeg-full
+          fortune
+          imagemagick
+          jdupes
+          libnotify
+          nerdfonts
+          notify-desktop
+          openvpn
+          playerctl
+          qrencode
+          wirelesstools
+          xdragon
+          ytfzf
+          zbar
+
+          # other
+          meld
+          pandoc
+          xorg.xcursorgen
         ] ++
 
         # ponycastle-specific packages

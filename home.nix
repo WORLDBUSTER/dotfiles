@@ -55,34 +55,20 @@ in
       # packages for all devices
       [
         # terminal/cli stuff
-        cava
-        chafa
         fd
-        fish
-        git-annex
-        glances
         gnupg
-        jdupes
-        jq
-        libqalculate
         neovim-remote
-        notify-desktop
-        playerctl
-        pv
         ripgrep
         sd
-        spotify-tui
-        unar
-        ytfzf
-        zip
+      ] ++
 
+      # for personal devices
+      lib.optionals (deviceInfo.personal) [
         # development/programming
         docker-compose
         gcc
-        git-crypt
         insomnia
         lld
-        meld
         nodejs
         python3
         rnix-lsp
@@ -90,9 +76,6 @@ in
         rust-analyzer
         tree-sitter
         zls
-
-        # writing
-        pandoc
 
         # email
         hydroxide
@@ -106,25 +89,20 @@ in
         nodePackages.typescript
         nodePackages.typescript-language-server
 
-        # xorg
-        xorg.xcursorgen
-
-        # other things
-        ffmpeg-full
+        # other terminal/cli stuff
         fnlfmt
-        fortune
-        imagemagick
-        libnotify
-        nerdfonts
+        git-annex
+        git-crypt
+        glances
+        libqalculate
         nixpkgs-fmt
-        openvpn
-        qrencode
+        pv
         rsync
+        spotify-tui
         tldr
-        wirelesstools
-        xdragon
+        unar
         yt-dlp
-        zbar
+        zip
       ];
 
     sessionPath = [
