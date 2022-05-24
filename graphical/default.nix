@@ -58,6 +58,39 @@ in
           glib # for gtk theming
           ksshaskpass
           polkit_gnome
+        ] ++
+
+        # ponycastle-specific packages
+        lib.optionals (deviceInfo.name == "ponycastle") [
+          # apps
+          obs-studio
+
+          # video
+          blender
+          kdenlive
+          mediainfo
+          movit
+
+          # audio, sound, and music
+          ChowKick
+          ardour
+          audacity
+          calf
+          drumkv1
+          geonkick
+          helm
+          helvum
+          hydrogen
+          linuxsampler
+          pamixer # for muse-status, at least
+          pavucontrol
+          qpwgraph
+          qsampler
+          sonic-visualiser
+          spotify
+          x42-gmsynth
+          x42-plugins
+          zyn-fusion
         ];
 
       pointerCursor = {
