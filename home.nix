@@ -272,11 +272,6 @@ in
 
   systemd = import ./systemd.nix { inherit config pkgs; };
 
-  wayland.windowManager.sway = import ./sway/mod.nix {
-    inherit config lib pkgs bemenuArgs lockCmd;
-    colors = config.muse.theme.colors;
-  };
-
   xdg = {
     enable = true;
     configFile = {

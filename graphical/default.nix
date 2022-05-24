@@ -66,5 +66,10 @@ in
         package = pkgs.adwaita-qt;
       };
     };
+
+    wayland.windowManager.sway = import ../sway/mod.nix {
+      inherit config lib pkgs bemenuArgs lockCmd;
+      colors = config.muse.theme.colors;
+    };
   };
 }
