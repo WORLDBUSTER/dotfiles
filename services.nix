@@ -1,18 +1,6 @@
 { bemenuArgs, colors, deviceInfo, lib, lockCmd, pkgs }:
 
 {
-  gammastep = {
-    enable = true;
-    provider = "geoclue2";
-    temperature.night = 1500;
-
-    settings = {
-      general = {
-        adjustment-method = "wayland";
-      };
-    };
-  };
-
   gpg-agent = {
     enable = true;
     maxCacheTtl = 86400;
