@@ -16,11 +16,6 @@
     enableAliases = true;
   };
 
-  firefox = {
-    enable = true;
-    package = pkgs.firefox-wayland;
-  };
-
   fish = {
     enable = true;
     shellAliases = {

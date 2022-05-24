@@ -10,4 +10,9 @@
     enable = true;
     package = pkgs.ungoogled-chromium;
   };
+
+  firefox = {
+    enable = true;
+    package = pkgs.firefox-wayland;
+  };
 }
