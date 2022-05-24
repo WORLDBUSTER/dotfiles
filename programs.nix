@@ -1,4 +1,4 @@
-{ config, deviceInfo, lib, pkgs, colors, bemenuArgs }:
+{ config, deviceInfo, lib, pkgs }:
 
 {
   # let home-manager install and manage itself

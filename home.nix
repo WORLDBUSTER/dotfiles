@@ -152,8 +152,7 @@
   manual.html.enable = true;
 
   programs = import ./programs.nix {
-    inherit config deviceInfo lib pkgs bemenuArgs;
-    colors = config.muse.theme.colors;
+    inherit config deviceInfo lib pkgs;
   };
 
   services = import ./services.nix {
