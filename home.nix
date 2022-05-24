@@ -156,8 +156,7 @@
   };
 
   services = import ./services.nix {
-    inherit bemenuArgs deviceInfo lib lockCmd pkgs;
-    colors = config.muse.theme.colors;
+    inherit deviceInfo lib pkgs;
   };
 
   systemd = import ./systemd.nix { inherit config pkgs; };

@@ -1,4 +1,4 @@
-{ bemenuArgs, colors, deviceInfo, lib, lockCmd, pkgs }:
+{ deviceInfo, lib, pkgs }:
 
 {
   gpg-agent = {
