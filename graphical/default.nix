@@ -58,6 +58,15 @@ in
           glib # for gtk theming
           ksshaskpass
           polkit_gnome
+
+          # photo
+          gimp
+          inkscape
+          krita
+          rawtherapee
+
+          # music
+          musescore
         ] ++
 
         # ponycastle-specific packages

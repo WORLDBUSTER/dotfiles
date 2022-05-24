@@ -91,15 +91,6 @@ in
         tree-sitter
         zls
 
-        # photo
-        gimp
-        inkscape
-        krita
-        rawtherapee
-
-        # music
-        musescore
-
         # writing
         pandoc
 
