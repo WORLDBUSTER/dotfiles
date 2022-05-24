@@ -15,4 +15,6 @@
     enable = true;
     package = pkgs.firefox-wayland;
   };
+
+  kitty = import ../kitty.nix { inherit colors pkgs; };
 }

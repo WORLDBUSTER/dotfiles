@@ -171,8 +171,6 @@
     keys = [ "id_rsa_github" "id_rsa_bitbucket" "id_ed25519" "4B21310A52B15162" ] ++ lib.optional (deviceInfo.name != "ponycastle") "id_rsa_ponycastle";
   };
 
-  kitty = import ./kitty.nix { inherit colors pkgs; };
-
   lazygit.enable = true;
 
   mbsync.enable = true;
