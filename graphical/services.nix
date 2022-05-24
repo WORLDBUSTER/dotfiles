@@ -16,4 +16,6 @@
   };
 
   kdeconnect.enable = true;
+
+  muse-status.enable = true;
 }

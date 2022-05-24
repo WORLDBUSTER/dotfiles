@@ -8,8 +8,6 @@
     extraConfig = "no-allow-external-cache";
   };
 
-  muse-status.enable = true;
-
   spotifyd = import ./spotifyd/mod.nix { inherit deviceInfo pkgs; };
 
   swayidle = {
