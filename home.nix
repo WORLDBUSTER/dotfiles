@@ -265,15 +265,6 @@ in
     colors = config.muse.theme.colors;
   };
 
-  qt = {
-    enable = true;
-    platformTheme = "gnome";
-    style = {
-      name = "adwaita-dark";
-      package = pkgs.adwaita-qt;
-    };
-  };
-
   services = import ./services.nix {
     inherit bemenuArgs deviceInfo lib lockCmd pkgs;
     colors = config.muse.theme.colors;

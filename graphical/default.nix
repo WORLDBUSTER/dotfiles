@@ -57,5 +57,14 @@ in
         x11.enable = true;
       };
     };
+
+    qt = {
+      enable = true;
+      platformTheme = "gnome";
+      style = {
+        name = "adwaita-dark";
+        package = pkgs.adwaita-qt;
+      };
+    };
   };
 }
