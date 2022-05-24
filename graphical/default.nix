@@ -85,6 +85,24 @@ in
           libreoffice-fresh
           tor-browser-bundle-bin
           xournalpp
+
+          # emulators and "emulators"
+          wine
+          desmume
+          dolphin-emu
+
+          # games
+          gnome.aisleriot
+          itch
+          libretro.desmume
+          libretro.dolphin
+          libretro.thepowdertoy
+          lutris
+          polymc
+          retroarchFull
+          space-cadet-pinball
+          the-powder-toy
+          vitetris
         ] ++
 
         # ponycastle-specific packages

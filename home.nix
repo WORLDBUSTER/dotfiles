@@ -97,11 +97,6 @@ in
         # email
         hydroxide
 
-        # emulators and "emulators"
-        wine
-        desmume
-        dolphin-emu
-
         # fish plugins
         fishPlugins.done
         fishPlugins.foreign-env
@@ -113,19 +108,6 @@ in
 
         # xorg
         xorg.xcursorgen
-
-        # games
-        gnome.aisleriot
-        itch
-        libretro.desmume
-        libretro.dolphin
-        libretro.thepowdertoy
-        lutris
-        polymc
-        retroarchFull
-        space-cadet-pinball
-        the-powder-toy
-        vitetris
 
         # other things
         ffmpeg-full
