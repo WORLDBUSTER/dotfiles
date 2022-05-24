@@ -12,6 +12,7 @@ let
 in
 {
   imports = [
+    ./graphical
     ./muse
     ./muse-status.nix
     ./nvim
