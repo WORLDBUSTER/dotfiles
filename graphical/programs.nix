@@ -17,4 +17,19 @@
   };
 
   kitty = import ../kitty.nix { inherit colors pkgs; };
+
+  mpv = {
+    enable = true;
+    config = {
+      osc = "no";
+      hwdec = "auto";
+      force-window = "yes";
+    };
+    scripts = builtins.attrValues {
+      inherit (pkgs.mpvScripts)
+        mpris
+        thumbnail
+        youtube-quality;
+    };
+  };
 }
