@@ -1,7 +1,5 @@
 { config, deviceInfo ? null, lib, overlays ? [ ], pkgs, ... }:
 
-let
-in
 {
   imports = [
     ./graphical
