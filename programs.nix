@@ -6,11 +6,6 @@
 
   bat.enable = true;
 
-  chromium = {
-    enable = true;
-    package = pkgs.ungoogled-chromium;
-  };
-
   direnv = {
     enable = true;
     nix-direnv.enable = true;
