@@ -275,23 +275,6 @@ in
 
   fonts.fontconfig.enable = true;
 
-  gtk = {
-    enable = true;
-    cursorTheme = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Original-Classic";
-    };
-    font = config.muse.theme.sansFont;
-    iconTheme = {
-      package = pkgs.papirus-icon-theme;
-      name = "Papirus-Dark";
-    };
-    theme = {
-      package = pkgs.gnome-themes-extra;
-      name = "Adwaita-dark";
-    };
-  };
-
   manual.html.enable = true;
 
   programs = import ./programs.nix {
