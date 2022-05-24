@@ -97,12 +97,6 @@ in
         # email
         hydroxide
 
-        # messaging
-        discord
-        element-desktop
-        signal-desktop
-        slack
-
         # apps
         android-file-transfer
         awf

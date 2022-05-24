@@ -67,6 +67,12 @@ in
 
           # music
           musescore
+
+          # messaging
+          discord
+          element-desktop
+          signal-desktop
+          slack
         ] ++
 
         # ponycastle-specific packages
