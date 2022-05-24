@@ -21,6 +21,8 @@ in
       };
     };
 
+    fonts.fontconfig.enable = true;
+
     gtk = {
       enable = true;
       cursorTheme = {

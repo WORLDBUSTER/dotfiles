@@ -273,8 +273,6 @@ in
     stateVersion = "21.11";
   };
 
-  fonts.fontconfig.enable = true;
-
   manual.html.enable = true;
 
   programs = import ./programs.nix {
