@@ -1,8 +1,6 @@
 { config, deviceInfo ? null, lib, overlays ? [ ], pkgs, ... }:
 
 let
-  fontText = "Inter 12";
-
   # bemenu
   black = "#${config.muse.theme.colors.swatch.background}e5";
   white = "#${config.muse.theme.colors.swatch.foreground}";
