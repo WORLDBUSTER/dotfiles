@@ -32,4 +32,6 @@
         youtube-quality;
     };
   };
+
+  zathura.enable = true;
 }
