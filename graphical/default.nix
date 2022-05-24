@@ -48,6 +48,18 @@ in
     };
 
     home = {
+      packages = with pkgs;
+        # stuff for my personal devices only
+        lib.optionals (deviceInfo.personal) [
+          # desktop environment
+          bemenu
+          eww-wayland
+          flashfocus
+          glib # for gtk theming
+          ksshaskpass
+          polkit_gnome
+        ];
+
       pointerCursor = {
         package = pkgs.bibata-cursors;
         name = "Bibata-Original-Classic";

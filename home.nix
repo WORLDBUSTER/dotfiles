@@ -54,14 +54,6 @@ in
     packages = with pkgs;
       # packages for all devices
       [
-        # desktop environment
-        bemenu
-        eww-wayland
-        flashfocus
-        glib # for gtk theming
-        ksshaskpass
-        polkit_gnome
-
         # terminal/cli stuff
         cava
         chafa
