@@ -1,7 +1,6 @@
 { config, deviceInfo ? null, lib, overlays ? [ ], pkgs, ... }:
 
 let
-  lockCmd = "$HOME/.config/sway/scripts/lock.fish --bg-color ${config.muse.theme.colors.swatch.background} --fg-color ${config.muse.theme.colors.swatch.foreground} --primary-color ${config.muse.theme.colors.swatch.accent} --warning-color ${config.muse.theme.colors.swatch.warning} --error-color ${config.muse.theme.colors.swatch.alert}";
 in
 {
   imports = [

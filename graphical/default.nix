@@ -10,6 +10,7 @@ let
   white = "#${config.muse.theme.colors.swatch.foreground}";
   accent = "#${config.muse.theme.colors.swatch.accent}e5";
   bemenuArgs = [ "-H" "32" "--fn" fontText "--tb" "'${black}'" "--tf" "'${accent}'" "--fb" "'${black}'" "--ff" "'${white}'" "--nb" "'${black}'" "--nf" "'${accent}'" "--hb" "'${accent}'" "--hf" "'${black}'" "--sb" "'${accent}'" "--sf" "'${white}'" "--scrollbar" "autohide" "-f" "-m" "all" ];
+  lockCmd = "$HOME/.config/sway/scripts/lock.fish --bg-color ${config.muse.theme.colors.swatch.background} --fg-color ${config.muse.theme.colors.swatch.foreground} --primary-color ${config.muse.theme.colors.swatch.accent} --warning-color ${config.muse.theme.colors.swatch.warning} --error-color ${config.muse.theme.colors.swatch.alert}";
 in
 {
   config = mkIf (deviceInfo.graphical) {
