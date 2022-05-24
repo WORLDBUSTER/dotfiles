@@ -14,4 +14,6 @@
       };
     };
   };
+
+  kdeconnect.enable = true;
 }
