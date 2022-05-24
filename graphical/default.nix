@@ -170,6 +170,16 @@ in
       };
     };
 
+    programs = import ./programs.nix {
+      inherit config deviceInfo lib pkgs bemenuArgs;
+      colors = config.muse.theme.colors;
+    };
+
+    services = import ./services.nix {
+      inherit bemenuArgs deviceInfo lib lockCmd pkgs;
+      colors = config.muse.theme.colors;
+    };
+
     qt = {
       enable = true;
       platformTheme = "gnome";
