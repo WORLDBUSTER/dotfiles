@@ -93,13 +93,6 @@ in
 
           # games
           gnome.aisleriot
-          itch
-          libretro.desmume
-          libretro.dolphin
-          libretro.thepowdertoy
-          lutris
-          polymc
-          retroarchFull
           space-cadet-pinball
           the-powder-toy
           vitetris
@@ -129,6 +122,15 @@ in
 
         # ponycastle-specific packages
         lib.optionals (deviceInfo.name == "ponycastle") [
+          # games
+          itch
+          libretro.desmume
+          libretro.dolphin
+          libretro.thepowdertoy
+          lutris
+          polymc
+          retroarchFull
+
           # apps
           obs-studio
 
