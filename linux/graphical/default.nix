@@ -1,4 +1,4 @@
-{ config, deviceInfo, lib, pkgs, ... }:
+{ bemenuArgs, config, deviceInfo, lib, pkgs, ... }:
 
 let
   inherit (lib) mkIf optionals;
@@ -13,7 +13,7 @@ let
   lockCmd = "$HOME/.config/sway/scripts/lock.fish --bg-color ${config.muse.theme.colors.swatch.background} --fg-color ${config.muse.theme.colors.swatch.foreground} --primary-color ${config.muse.theme.colors.swatch.accent} --warning-color ${config.muse.theme.colors.swatch.warning} --error-color ${config.muse.theme.colors.swatch.alert}";
 in
 {
-  config = mkIf (deviceInfo.graphical) {
+  config = {
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         gtk-theme = config.gtk.theme.name;
@@ -162,14 +162,6 @@ in
           zyn-fusion
         ];
 
-      pointerCursor = {
-        package = pkgs.bibata-cursors;
-        name = "Bibata-Original-Classic";
-        size = 24;
-
-        gtk.enable = true;
-        x11.enable = true;
-      };
     };
 
     programs = import ./programs.nix {
@@ -189,11 +181,6 @@ in
         name = "adwaita-dark";
         package = pkgs.adwaita-qt;
       };
-    };
-
-    wayland.windowManager.sway = import ../sway/mod.nix {
-      inherit config lib pkgs bemenuArgs lockCmd;
-      colors = config.muse.theme.colors;
     };
   };
 }
