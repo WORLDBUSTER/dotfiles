@@ -39,19 +39,18 @@
         fd
         gnupg
         neovim-remote
+        nixpkgs-fmt
         ripgrep
         sd
+
+        # fish plugins
+        fishPlugins.done
+        fishPlugins.foreign-env
       ] ++
 
       # for personal devices
       lib.optionals (deviceInfo.personal) [
         # development/programming
-        docker-compose
-        gcc
-        insomnia
-        lld
-        nodejs
-        python3
         rnix-lsp
         rustup
         rust-analyzer
@@ -61,22 +60,12 @@
         # email
         hydroxide
 
-        # fish plugins
-        fishPlugins.done
-        fishPlugins.foreign-env
-
-        # (global) npm packages
-        nodePackages.npm
-        nodePackages.typescript
-        nodePackages.typescript-language-server
-
         # other terminal/cli stuff
         fnlfmt
         git-annex
         git-crypt
         glances
         libqalculate
-        nixpkgs-fmt
         pv
         rsync
         spotify-tui
